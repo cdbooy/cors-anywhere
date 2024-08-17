@@ -23,20 +23,10 @@ var cors_proxy = require('./lib/cors-anywhere');
 cors_proxy.createServer({
   originBlacklist: originBlacklist,
   originWhitelist: originWhitelist,
-  requireHeader: ['origin'],
+  requireHeader: ['user-agent'],
   checkRateLimit: checkRateLimit,
-  removeHeaders: [
-    'x-request-start',
-    'x-request-id',
-    'via',
-    'server',
-    'connect-time',
-    'total-route-time',
-    'x-forwarded-for',
-    'x-forwarded-proto',
-    'x-forwarded-port',
-  ],
-  redirectSameOrigin: true,
+  removeHeaders: [],
+  redirectSameOrigin: false,
   httpProxyOptions: {
     xfwd: false
   },
